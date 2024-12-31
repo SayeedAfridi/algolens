@@ -1,0 +1,17 @@
+{
+  "editor.defaultFormatter": "biomejs.biome",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "javascript.preferences.jsxAttributeCompletionStyle": "none",
+  "typescript.preferences.jsxAttributeCompletionStyle": "none",
+  "typescript.preferences.importModuleSpecifier": "non-relative"
+}
