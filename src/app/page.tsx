@@ -29,11 +29,13 @@ export default function Home() {
           <Card>
             <CardHeader className='flex flex-row items-center justify-between'>
               <div className='mr-48'>
-                <CardTitle>Search</CardTitle>
-                <CardDescription>Visualise search algorithms</CardDescription>
+                <CardTitle>Linear Search</CardTitle>
+                <CardDescription>
+                  Visualise linear search algorithm
+                </CardDescription>
               </div>
               <Button asChild>
-                <Link href='/search'>Visualise</Link>
+                <Link href='/search/linear'>Visualise</Link>
               </Button>
             </CardHeader>
           </Card>

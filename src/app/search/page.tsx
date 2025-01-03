@@ -1,3 +1,10 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Search',
+  description: 'Popular search algorithms',
+};
+
 export default function Search() {
   return (
     <div>
