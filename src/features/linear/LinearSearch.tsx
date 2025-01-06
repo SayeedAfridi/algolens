@@ -32,15 +32,13 @@ export const LinearSearch: React.FC<LinearSearchProps> = () => {
         setFound(i);
         await delay();
         setActive(undefined);
-        break;
+        return;
       }
       await delay();
     }
-    if (found === undefined || Number.isNaN(found)) {
-      setError(true);
-      setActive(undefined);
-    }
-  }, [needle, array, found, clearState]);
+    setError(true);
+    setActive(undefined);
+  }, [needle, array, clearState]);
 
   return (
     <>
