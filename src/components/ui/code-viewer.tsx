@@ -17,7 +17,7 @@ export type CodeViewerProps = {
 
 const getCode = async (language: string) => {
   const codeRq = await fetch(
-    'http://localhost:3000/api/codes/contents?feature=linear',
+    `${process.env.URL}/api/codes/contents?feature=linear`,
     {
       method: 'POST',
       body: JSON.stringify({

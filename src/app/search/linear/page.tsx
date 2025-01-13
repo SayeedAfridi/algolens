@@ -9,9 +9,7 @@ export const metadata: Metadata = {
 };
 
 export const getLanguages = async () => {
-  const codesReq = await fetch(
-    'http://localhost:3000/api/codes?feature=linear',
-  );
+  const codesReq = await fetch(`${process.env.URL}/api/codes?feature=linear`);
 
   const codes = await codesReq.json();
   return codes;
