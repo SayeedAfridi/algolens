@@ -16,15 +16,12 @@ export type CodeViewerProps = {
 };
 
 const getCode = async (language: string) => {
-  const codeRq = await fetch(
-    `${process.env.URL}/api/codes/contents?feature=linear`,
-    {
-      method: 'POST',
-      body: JSON.stringify({
-        lang: language,
-      }),
-    },
-  );
+  const codeRq = await fetch('/api/codes/contents?feature=linear', {
+    method: 'POST',
+    body: JSON.stringify({
+      lang: language,
+    }),
+  });
 
   const code = await codeRq.json();
   return code;

@@ -1,7 +1,7 @@
 'use client';
 
 import type React from 'react';
-import { useCallback, useState } from 'react';
+import { Suspense, use, useCallback, useState } from 'react';
 
 import { Button } from '@src/components/ui/button';
 import CodeViewer from '@src/components/ui/code-viewer';
@@ -9,10 +9,13 @@ import { Input } from '@src/components/ui/input';
 import { cn, delay, generateRandomArray } from '@src/lib/utils';
 
 export type LinearSearchProps = {
-  languages: string[];
+  languages: Promise<string[]>;
 };
 
-export const LinearSearch: React.FC<LinearSearchProps> = ({ languages }) => {
+export const LinearSearch: React.FC<LinearSearchProps> = ({
+  languages: langPromise,
+}) => {
+  const languages = use(langPromise);
   const [array, setArray] = useState<number[]>(generateRandomArray());
   const [active, setActive] = useState<number>();
   const [found, setFound] = useState<number>();
@@ -89,7 +92,9 @@ export const LinearSearch: React.FC<LinearSearchProps> = ({ languages }) => {
       >
         Regenerate array
       </Button>
-      <CodeViewer languages={languages} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <CodeViewer languages={languages} />
+      </Suspense>
     </>
   );
 };
