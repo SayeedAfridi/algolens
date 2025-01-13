@@ -51,7 +51,8 @@
         "noNamespace": "error",
         "noVar": "error",
         "useAsConstAssertion": "error",
-        "useConst": "error"
+        "useConst": "error",
+        "useNodejsImportProtocol": "off"
       },
       "suspicious": {
         "noClassAssign": "off",

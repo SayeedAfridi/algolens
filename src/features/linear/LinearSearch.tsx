@@ -1,14 +1,18 @@
 'use client';
 
-import { Button } from '@src/components/ui/button';
-import { Input } from '@src/components/ui/input';
-import { cn, delay, generateRandomArray } from '@src/lib/utils';
 import type React from 'react';
 import { useCallback, useState } from 'react';
 
-export type LinearSearchProps = {};
+import { Button } from '@src/components/ui/button';
+import CodeViewer from '@src/components/ui/code-viewer';
+import { Input } from '@src/components/ui/input';
+import { cn, delay, generateRandomArray } from '@src/lib/utils';
 
-export const LinearSearch: React.FC<LinearSearchProps> = () => {
+export type LinearSearchProps = {
+  languages: string[];
+};
+
+export const LinearSearch: React.FC<LinearSearchProps> = ({ languages }) => {
   const [array, setArray] = useState<number[]>(generateRandomArray());
   const [active, setActive] = useState<number>();
   const [found, setFound] = useState<number>();
@@ -45,6 +49,7 @@ export const LinearSearch: React.FC<LinearSearchProps> = () => {
       <div className='mb-4 flex gap-4'>
         <Input
           type='number'
+          placeholder='Enter number'
           onChange={(e) => {
             setNeedle(+e.target.value);
           }}
@@ -84,6 +89,7 @@ export const LinearSearch: React.FC<LinearSearchProps> = () => {
       >
         Regenerate array
       </Button>
+      <CodeViewer languages={languages} />
     </>
   );
 };
