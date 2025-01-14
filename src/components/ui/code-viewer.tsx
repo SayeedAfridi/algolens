@@ -1,5 +1,5 @@
 'use client';
-
+import { CopyToClipboard } from '@src/components/ui/copy-to-clipboard';
 import {
   Select,
   SelectContent,
@@ -27,7 +27,7 @@ const getCode = async (language: string) => {
   return code;
 };
 
-const CodeViewer: FC<CodeViewerProps> = ({ languages }) => {
+export const CodeViewer: FC<CodeViewerProps> = ({ languages }) => {
   const [selectedlang, setSelectedLang] = useState<string>(languages[0]);
   const [code, setCode] = useState<string>('');
 
@@ -39,7 +39,7 @@ const CodeViewer: FC<CodeViewerProps> = ({ languages }) => {
   }, [selectedlang]);
 
   return (
-    <div className='mt-5'>
+    <div className='relative'>
       <div>
         <Select
           value={selectedlang}
@@ -69,11 +69,12 @@ const CodeViewer: FC<CodeViewerProps> = ({ languages }) => {
           </SelectContent>
         </Select>
       </div>
+      <div className='absolute top-12 right-1'>
+        <CopyToClipboard text={code} />
+      </div>
       <SyntaxHighlighter language={selectedlang} style={oneDark}>
         {code}
       </SyntaxHighlighter>
     </div>
   );
 };
-
-export default CodeViewer;

@@ -4,7 +4,7 @@ import type React from 'react';
 import { Suspense, use, useCallback, useState } from 'react';
 
 import { Button } from '@src/components/ui/button';
-import CodeViewer from '@src/components/ui/code-viewer';
+import { CodeViewer } from '@src/components/ui/code-viewer';
 import { Input } from '@src/components/ui/input';
 import { cn, delay, generateRandomArray } from '@src/lib/utils';
 
@@ -92,6 +92,7 @@ export const LinearSearch: React.FC<LinearSearchProps> = ({
       >
         Regenerate array
       </Button>
+      <div className='mt-4' />
       <Suspense fallback={<div>Loading...</div>}>
         <CodeViewer languages={languages} />
       </Suspense>

@@ -12,6 +12,7 @@ import {
 } from '@src/components/ui/navigation-menu';
 
 import './globals.css';
+import { Toaster } from '@src/components/ui/sonner';
 
 const rubik = Rubik({
   variable: '--font-rubik',
@@ -60,6 +61,7 @@ export default function RootLayout({
           </NavigationMenu>
         </div>
         {children}
+        <Toaster position='top-right' />
       </body>
     </html>
   );
