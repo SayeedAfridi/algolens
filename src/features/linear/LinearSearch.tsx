@@ -16,7 +16,7 @@ export const LinearSearch: React.FC<LinearSearchProps> = ({
   languages: langPromise,
 }) => {
   const languages = use(langPromise);
-  const [array, setArray] = useState<number[]>(generateRandomArray());
+  const [array, setArray] = useState<number[]>(generateRandomArray(11));
   const [active, setActive] = useState<number>();
   const [found, setFound] = useState<number>();
   const [error, setError] = useState<boolean>(false);
@@ -87,7 +87,8 @@ export const LinearSearch: React.FC<LinearSearchProps> = ({
       </div>
       <Button
         onClick={() => {
-          setArray(() => generateRandomArray());
+          clearState();
+          setArray(() => generateRandomArray(11));
         }}
       >
         Regenerate array
