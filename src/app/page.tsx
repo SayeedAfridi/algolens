@@ -22,24 +22,36 @@ export default function Home() {
           />
           <h3 className='text-5xl'>Algolens</h3>
           <p className='mt-2'>
-            Visualise algorithm and data structures through lens
+            Visualize algorithm and data structures through lens
           </p>
         </div>
-        <div>
-          <Card>
-            <CardHeader className='flex flex-row items-center justify-between'>
-              <div className='mr-48'>
-                <CardTitle>Linear Search</CardTitle>
-                <CardDescription>
-                  Visualise linear search algorithm
-                </CardDescription>
-              </div>
-              <Button asChild>
-                <Link href='/search/linear'>Visualise</Link>
-              </Button>
-            </CardHeader>
-          </Card>
-        </div>
+        <div></div>
+        <Card>
+          <CardHeader className='flex flex-row items-center justify-between'>
+            <div className='mr-48'>
+              <CardTitle>Linear Search</CardTitle>
+              <CardDescription>
+                Visualize linear search algorithm
+              </CardDescription>
+            </div>
+            <Button asChild>
+              <Link href='/search/linear'>Visualize</Link>
+            </Button>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader className='flex flex-row items-center justify-between'>
+            <div className='mr-48'>
+              <CardTitle>Binary Search</CardTitle>
+              <CardDescription>
+                Visualize binary search algorithm
+              </CardDescription>
+            </div>
+            <Button asChild>
+              <Link href='/search/binary'>Visualize</Link>
+            </Button>
+          </CardHeader>
+        </Card>
       </main>
     </div>
   );
