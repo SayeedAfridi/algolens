@@ -95,7 +95,7 @@ export const LinearSearch: React.FC<LinearSearchProps> = ({
       </Button>
       <div className='mt-4' />
       <Suspense fallback={<div>Loading...</div>}>
-        <CodeViewer languages={languages} />
+        <CodeViewer languages={languages} feature='linear' />
       </Suspense>
     </>
   );

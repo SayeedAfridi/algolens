@@ -13,10 +13,11 @@ import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export type CodeViewerProps = {
   languages: string[];
+  feature: string;
 };
 
-const getCode = async (language: string) => {
-  const codeRq = await fetch('/api/codes/contents?feature=linear', {
+const getCode = async (language: string, feature: string) => {
+  const codeRq = await fetch(`/api/codes/contents?feature=${feature}`, {
     method: 'POST',
     body: JSON.stringify({
       lang: language,
@@ -27,16 +28,19 @@ const getCode = async (language: string) => {
   return code;
 };
 
-export const CodeViewer: FC<CodeViewerProps> = ({ languages }) => {
+export const CodeViewer: FC<CodeViewerProps> = ({
+  languages,
+  feature = 'linear',
+}) => {
   const [selectedlang, setSelectedLang] = useState<string>(languages[0]);
   const [code, setCode] = useState<string>('');
 
   useEffect(() => {
     if (!selectedlang) return;
-    getCode(selectedlang).then((res) => {
+    getCode(selectedlang, feature).then((res) => {
       setCode(res.content);
     });
-  }, [selectedlang]);
+  }, [selectedlang, feature]);
 
   return (
     <div className='relative'>

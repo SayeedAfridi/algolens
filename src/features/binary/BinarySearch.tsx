@@ -13,7 +13,7 @@ export type BinarySearchProps = {
 const BinarySearch = ({ languages: langPromise }: BinarySearchProps) => {
   const languages = use(langPromise);
   const [array, setArray] = useState<number[]>(
-    generateRandomArray(11).sort((a, b) => a - b)
+    generateRandomArray(11).sort((a, b) => a - b),
   );
   const [active, setActive] = useState<number>();
   const [found, setFound] = useState<number>();
@@ -85,14 +85,18 @@ const BinarySearch = ({ languages: langPromise }: BinarySearchProps) => {
                 index === active
                   ? 'bg-amber-600' // Active element
                   : index === found
-                  ? 'bg-green-600' // Found element
-                  : index === left
-                  ? 'bg-blue-600' // First element (left pointer)
-                  : index === right
-                  ? 'bg-purple-600' // Last element (right pointer)
-                  : 'bg-slate-500' // Default color
+                    ? 'bg-green-600' // Found element
+                    : index === left
+                      ? 'bg-blue-600' // First element (left pointer)
+                      : index === right
+                        ? 'bg-purple-600' // Last element (right pointer)
+                        : 'bg-slate-500', // Default color
               )}
-              key={`${num}-${index}`}>
+              key={`${num}-${
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                index
+              }`}
+            >
               {num}
             </div>
           );
@@ -102,12 +106,13 @@ const BinarySearch = ({ languages: langPromise }: BinarySearchProps) => {
         onClick={() => {
           clearState();
           setArray(() => generateRandomArray(11).sort((a, b) => a - b));
-        }}>
+        }}
+      >
         Regenerate array
       </Button>
       <div className='mt-4' />
       <Suspense fallback={<div>Loading...</div>}>
-        <CodeViewer languages={languages} />
+        <CodeViewer feature='binary' languages={languages} />
       </Suspense>
     </>
   );
