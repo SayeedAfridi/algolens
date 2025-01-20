@@ -13,12 +13,14 @@ export type BinarySearchProps = {
 const BinarySearch = ({ languages: langPromise }: BinarySearchProps) => {
   const languages = use(langPromise);
   const [array, setArray] = useState<number[]>(
-    generateRandomArray(11).sort((a, b) => a - b),
+    generateRandomArray(11).sort((a, b) => a - b)
   );
   const [active, setActive] = useState<number>();
   const [found, setFound] = useState<number>();
   const [error, setError] = useState<boolean>(false);
   const [needle, setNeedle] = useState<number>();
+  const [left, setLeft] = useState<number | null>(null);
+  const [right, setRight] = useState<number | null>(null);
 
   const clearState = useCallback(() => {
     setActive(undefined);
@@ -31,14 +33,15 @@ const BinarySearch = ({ languages: langPromise }: BinarySearchProps) => {
       return;
     }
     clearState();
-
     let left = 0;
     let right = array.length - 1;
 
     while (left <= right) {
+      setLeft(left);
+      setRight(right);
       const mid = Math.floor((left + right) / 2);
       setActive(mid);
-      await delay();
+      await delay(1000);
 
       if (array[mid] === needle) {
         setFound(mid);
@@ -80,16 +83,16 @@ const BinarySearch = ({ languages: langPromise }: BinarySearchProps) => {
               className={cn(
                 'flex h-[48px] w-[48px] items-center justify-center rounded-sm transition-colors ease-in-out',
                 index === active
-                  ? 'bg-amber-600'
+                  ? 'bg-amber-600' // Active element
                   : index === found
-                    ? 'bg-green-600'
-                    : 'bg-slate-500',
+                  ? 'bg-green-600' // Found element
+                  : index === left
+                  ? 'bg-blue-600' // First element (left pointer)
+                  : index === right
+                  ? 'bg-purple-600' // Last element (right pointer)
+                  : 'bg-slate-500' // Default color
               )}
-              key={`${num}-${
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                index
-              }`}
-            >
+              key={`${num}-${index}`}>
               {num}
             </div>
           );
@@ -99,8 +102,7 @@ const BinarySearch = ({ languages: langPromise }: BinarySearchProps) => {
         onClick={() => {
           clearState();
           setArray(() => generateRandomArray(11).sort((a, b) => a - b));
-        }}
-      >
+        }}>
         Regenerate array
       </Button>
       <div className='mt-4' />

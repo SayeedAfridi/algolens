@@ -1,5 +1,5 @@
 import { Container } from '@src/components/ui/container';
-import BinarySearch from '@src/features/binary/codes/BinarySearch';
+import BinarySearch from '@src/features/binary/BinarySearch';
 
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
