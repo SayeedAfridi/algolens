@@ -1,3 +1,0 @@
-# lint staged
-
-biome check --staged --write
