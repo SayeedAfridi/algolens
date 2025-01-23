@@ -1,8 +1,9 @@
-int linearSearch(int n, int[] haystack, int needle) {
-  for(int i = 0; i < n; i++) {
-    if(haystack[i] === needle) {
-      return 1;
+bool linearSearch(int haystack[], int needle, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (haystack[i] == needle)
+            return true;
     }
-  }
-  return 0;
+    return false;
 }
