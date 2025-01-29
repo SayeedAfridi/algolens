@@ -42,22 +42,45 @@ export default async function Team() {
 
   return (
     <Container>
-      <div className='mx-auto my-8 w-[700px]'>
+      <div className='mx-auto my-8 max-w-[1000px] bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 p-10'>
         <h2 className='mb-10 text-center text-2xl'>Algolens Team</h2>
-        <div className='flex flex-wrap gap-8'>
+        <p className='mb-10 text-center text-lg'>
+          Meet the contributors who make Algolens possible!
+        </p>
+        <div className='flex flex-wrap items-center justify-center gap-8'>
           {contributors.map((contributor) => {
             return (
-              <div key={contributor.id} className='flex flex-col items-center'>
-                <Image
-                  width={80}
-                  height={80}
-                  className='rounded-full'
-                  src={contributor.avatar_url}
-                  alt={contributor.login}
-                />
+              <div
+                key={contributor.id}
+                className='flex flex-col items-center rounded-xl bg-orange-100 p-6'
+              >
+                <div className='rounded-full border-[3px] border-blue-900'>
+                  <Image
+                    width={80}
+                    height={80}
+                    className='rounded-full'
+                    src={contributor.avatar_url}
+                    alt={contributor.login}
+                  />
+                </div>
                 <a href={contributor.html_url} target='_blank' rel='noreferrer'>
-                  <p className='mt-2 text-gray-300 text-lg'>
+                  <p className='mt-2 text-gray-900 text-lg hover:text-blue-500 hover:underline'>
                     @{contributor.login}
+                  </p>
+                </a>
+                <p className='mt-2 text-gray-900 text-sm'>
+                  Contributions:{' '}
+                  <span className='font-medium text-gray-900'>
+                    {contributor.contributions}
+                  </span>
+                </p>
+                <a
+                  href={contributor.repos_url}
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  <p className='mt-3 text-blue-600 text-sm hover:text-blue-900 hover:underline'>
+                    View Repositories
                   </p>
                 </a>
               </div>
