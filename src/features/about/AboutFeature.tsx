@@ -1,4 +1,7 @@
+import type React from 'react';
+
 import { FaCode, FaEye, FaRocket } from 'react-icons/fa';
+
 const AboutFeature = () => {
   return (
     <section className='mx-auto grid max-w-6xl gap-8 px-8 py-16 md:grid-cols-3'>
@@ -25,7 +28,7 @@ function FeatureCard({
   icon,
   title,
   description,
-}: { icon: JSX.Element; title: string; description: string }) {
+}: { icon: React.ReactElement; title: string; description: string }) {
   return (
     <div className='rounded-xl border border-orange-700 bg-neutral-300 p-6 text-center shadow-orange-400 shadow-sm'>
       <div className='flex justify-center'>{icon}</div>

@@ -42,7 +42,7 @@ export default async function Team() {
 
   return (
     <Container>
-      <div className='mx-auto my-8 max-w-[1000px] bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 p-10'>
+      <div className='mx-auto my-8 max-w-[1000px] rounded-sm bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 p-10'>
         <h2 className='mb-10 text-center text-2xl'>Algolens Team</h2>
         <p className='mb-10 text-center text-lg'>
           Meet the contributors who make Algolens possible!
