@@ -25,7 +25,7 @@ export default function Home() {
             Visualize algorithm and data structures through lens
           </p>
         </div>
-        <div></div>
+        <div />
         <Card>
           <CardHeader className='flex flex-row items-center justify-between'>
             <div className='mr-48'>
@@ -49,6 +49,17 @@ export default function Home() {
             </div>
             <Button asChild>
               <Link href='/search/binary'>Visualize</Link>
+            </Button>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader className='flex flex-row items-center justify-between'>
+            <div className='mr-48'>
+              <CardTitle>Bubble Sort</CardTitle>
+              <CardDescription>Visualize bubble sort algorithm</CardDescription>
+            </div>
+            <Button asChild>
+              <Link href='/sort/bubble'>Visualize</Link>
             </Button>
           </CardHeader>
         </Card>
