@@ -1,7 +1,7 @@
-import AboutAction from '@src/features/aboutComponents/AboutAction';
-import AboutFeature from '@src/features/aboutComponents/AboutFeature';
-import AboutHero from '@src/features/aboutComponents/AboutHero';
-import AboutQuery from '@src/features/aboutComponents/AboutQuery';
+import AboutAction from '@src/features/about/AboutAction';
+import AboutFeature from '@src/features/about/AboutFeature';
+import AboutHero from '@src/features/about/AboutHero';
+import AboutQuery from '@src/features/about/AboutQuery';
 
 export default function AboutPage() {
   return (
