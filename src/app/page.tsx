@@ -1,12 +1,7 @@
-import { Button } from '@src/components/ui/button';
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@src/components/ui/card';
 import Image from 'next/image';
-import Link from 'next/link';
+
+import { ListItem } from '@src/features/home/ListItem';
+import { HomeListConfig } from '@src/features/home/listConfig';
 
 export default function Home() {
   return (
@@ -26,43 +21,9 @@ export default function Home() {
           </p>
         </div>
         <div />
-        <Card>
-          <CardHeader className='flex flex-row items-center justify-between'>
-            <div className='mr-48'>
-              <CardTitle>Linear Search</CardTitle>
-              <CardDescription>
-                Visualize linear search algorithm
-              </CardDescription>
-            </div>
-            <Button asChild>
-              <Link href='/search/linear'>Visualize</Link>
-            </Button>
-          </CardHeader>
-        </Card>
-        <Card>
-          <CardHeader className='flex flex-row items-center justify-between'>
-            <div className='mr-48'>
-              <CardTitle>Binary Search</CardTitle>
-              <CardDescription>
-                Visualize binary search algorithm
-              </CardDescription>
-            </div>
-            <Button asChild>
-              <Link href='/search/binary'>Visualize</Link>
-            </Button>
-          </CardHeader>
-        </Card>
-        <Card>
-          <CardHeader className='flex flex-row items-center justify-between'>
-            <div className='mr-48'>
-              <CardTitle>Bubble Sort</CardTitle>
-              <CardDescription>Visualize bubble sort algorithm</CardDescription>
-            </div>
-            <Button asChild>
-              <Link href='/sort/bubble'>Visualize</Link>
-            </Button>
-          </CardHeader>
-        </Card>
+        {HomeListConfig.map((config) => {
+          return <ListItem {...config} key={config.link} />;
+        })}
       </main>
     </div>
   );
