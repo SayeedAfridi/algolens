@@ -17,9 +17,6 @@ const BubbleSort = ({ languages: langPromise }: BubbleSortProps) => {
 
   return (
     <>
-      <div className='mb-4 flex gap-4'>
-        <Button onClick={bubbleSort}>Sort</Button>
-      </div>
       <span className='text-xl'>Array</span>
       <div className='my-4 flex flex-wrap gap-4 '>
         {array.map((num, index) => {
@@ -36,14 +33,16 @@ const BubbleSort = ({ languages: langPromise }: BubbleSortProps) => {
           );
         })}
       </div>
-      <Button
-        onClick={() => {
-          setArray(() => generateRandomArray(11).sort((a, b) => a - b));
-        }}
-      >
-        Regenerate array
-      </Button>
-      <div className='mt-4' />
+      <div className='mb-4 flex gap-4'>
+        <Button onClick={bubbleSort}>Sort</Button>
+        <Button
+          onClick={() => {
+            setArray(() => generateRandomArray(11).sort((a, b) => a - b));
+          }}
+        >
+          Regenerate array
+        </Button>
+      </div>
       <Suspense fallback={<div>Loading...</div>}>
         <CodeViewer feature='bubble' languages={languages} />
       </Suspense>
