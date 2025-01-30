@@ -52,7 +52,7 @@ export default async function Team() {
             return (
               <div
                 key={contributor.id}
-                className='flex flex-col items-center rounded-xl bg-orange-100 p-6'
+                className='flex w-[200px] flex-col items-center rounded-xl bg-orange-100 p-6'
               >
                 <div className='rounded-full border-[3px] border-blue-900'>
                   <Image
@@ -75,7 +75,7 @@ export default async function Team() {
                   </span>
                 </p>
                 <a
-                  href={contributor.repos_url}
+                  href={`${contributor.html_url}?tab=repositories`}
                   target='_blank'
                   rel='noreferrer'
                 >
